@@ -1,4 +1,5 @@
 const repos = [];
+const main = document.querySelector('main');
 
 // save to local storage for development
 const store = localStorage.getItem('repos');
@@ -13,3 +14,20 @@ if (store) {
       localStorage.setItem('repos', JSON.stringify(repos))
     );
 }
+
+function makeCard(repo) {
+  const card = document.createElement('section');
+  const fig = document.createElement('figure');
+  const figCaption = document.createElement('figcaption');
+  const img = document.createElement('img');
+
+  img.src = 'github.png';
+  figCaption.textContent = repo.name;
+
+  fig.appendChild(img);
+  fig.appendChild(figCaption);
+  card.appendChild(fig);
+  main.appendChild(card);
+}
+
+repos.forEach(makeCard);
