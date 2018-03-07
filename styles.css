@@ -20,7 +20,7 @@ main {
 section {
   overflow: hidden;
   border: 1px solid red;
-  flex: 0 0 270px;
+  flex: 0 0 240px;
   margin-bottom: var(--gutter);
   display: flex;
   align-items: center;
@@ -42,14 +42,13 @@ figcaption {
   color: #fff;
   text-align: center;
   padding: 1em;
-  height: 106px;
+  height: 100px;
   font-size: 1.3em;
   background-color: #000;
   opacity: .7;
   transition: .5s ease-in-out;
   transform: translateY(-150px);
   display: flex;
-  height: 106px;
   align-items: center;
 }
 
