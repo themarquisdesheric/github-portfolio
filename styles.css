@@ -39,6 +39,12 @@ figcaption {
   text-align: center;
   padding: 1em;
   font-size: 1.3em;
+  transition: .5s ease-in-out;
+  transform: translateY(-140px);
+}
+
+section:hover figcaption {
+  transform: translateY(0px);
 }
 
 p {
