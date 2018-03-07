@@ -29,6 +29,16 @@ figure {
   height: 150px;
   width: 100%;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+figcaption {
+  color: white;
+  text-align: center;
+  padding: 1em;
+  font-size: 1.3em;
 }
 
 p {
