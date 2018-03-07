@@ -18,17 +18,21 @@ section {
   border: 1px solid red;
   flex: 0 0 270px;
   margin-bottom: 1rem;
-}
-
-figure {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   flex-direction: column;
 }
 
-figcaption {
-  margin-top: .5rem;
-  font-size: 1.3em;
+figure {
+  background: url(github.png) no-repeat center center;
+  height: 150px;
+  width: 100%;
+  margin: 0;
 }
 
-
+p {
+  margin: .1em 0 .6em;
+  font-size: 1.3em;
+  font-family: 'Helvetica Neue', sans-serif;
+}

@@ -17,16 +17,13 @@ if (store) {
 
 function makeCard(repo) {
   const card = document.createElement('section');
-  const fig = document.createElement('figure');
-  const figCaption = document.createElement('figcaption');
-  const img = document.createElement('img');
+  const figure = document.createElement('figure');
+  const p = document.createElement('p');
 
-  img.src = 'github.png';
-  figCaption.textContent = repo.name;
+  p.textContent = repo.name;
 
-  fig.appendChild(img);
-  fig.appendChild(figCaption);
-  card.appendChild(fig);
+  card.appendChild(figure);
+  card.appendChild(p);
   main.appendChild(card);
 }
 
