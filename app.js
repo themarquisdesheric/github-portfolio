@@ -18,13 +18,17 @@ if (store) {
 function makeCard(repo) {
   const card = document.createElement('section');
   const figure = document.createElement('figure');
-  const figcaption = document.createElement('figcaption');
   const p = document.createElement('p');
-
+  
   p.textContent = repo.name;
-  figcaption.textContent = repo.description;
 
-  figure.appendChild(figcaption);
+  if (repo.description) {
+    // create content for animated rollover if content available
+    const figcaption = document.createElement('figcaption');
+    figcaption.textContent = repo.description;
+    figure.appendChild(figcaption);
+  }
+
   card.appendChild(figure);
   card.appendChild(p);
   main.appendChild(card);
