@@ -1,5 +1,5 @@
 :root {
-  --gutter: 1.5em;
+  --gutter: 3em;
 }
 
 body { 
@@ -13,11 +13,20 @@ body {
   min-height: 100vh;
 }
 
+header { padding: 3em 0; }
+
+h1 {
+  margin: 0 auto;
+  width: 10em;
+  font-size: 6em;
+  text-align: center;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: var(--gutter) 0;
+  padding-bottom: var(--gutter);
 }
 
 section {
@@ -94,7 +103,10 @@ p {
 .chart.js { background-color: #009688; }
 .mongo { background-color: #2196F3; }
 .mongoose { background-color: #FF6F00; }
-.postgres { background-color: #00E676; }
+.postgres { 
+  background-color: #00E676; 
+  color: #222; 
+}
 .mocha { background-color: rgb(114, 33, 176); }
 .chai { background-color: rgb(253, 94, 30); }
 .jest { 
@@ -108,4 +120,7 @@ p {
   background-color: #FFC107; 
   color: #222;
 }
-.heroku { background-color: #76FF03; }
+.heroku { 
+  background-color: #64FFDA;
+  color: #222; 
+}
