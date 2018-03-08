@@ -8,7 +8,7 @@ body {
 }
 
 #wrapper {
-  background-color: blueviolet;
+  background-color: #edebfb;
   max-width: 100vw;
   min-height: 100vh;
 }
@@ -83,3 +83,29 @@ p {
   padding: 0.35em .75em 0.5em;
   margin: .5em;
 }
+
+/* tag colors */
+
+.react { background-color: #E91E63; }
+.react-router { background-color: #F44336; }
+.redux { background-color: #673AB7; }
+.node { background-color: #AA00FF; }
+.jquery { background-color: #3F51B5; }
+.chart.js { background-color: #009688; }
+.mongo { background-color: #2196F3; }
+.mongoose { background-color: #FF6F00; }
+.postgres { background-color: #00E676; }
+.mocha { background-color: rgb(114, 33, 176); }
+.chai { background-color: rgb(253, 94, 30); }
+.jest { 
+  background-color: #FFEB3B; 
+  color: #222;
+}
+.express { background-color: #00BCD4; }
+.bulma { background-color: #FF5722; }
+.sass { background-color: #FF9800; }
+.handlebars { 
+  background-color: #FFC107; 
+  color: #222;
+}
+.heroku { background-color: #76FF03; }
