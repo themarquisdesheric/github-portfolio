@@ -22,9 +22,8 @@ main {
 
 section {
   overflow: hidden;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   flex: 0 0 240px;
-  margin-bottom: var(--gutter);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -45,12 +44,12 @@ figcaption {
   color: #fff;
   text-align: center;
   padding: 1em;
-  height: 100px;
+  height: 115px;
   font-size: 1.3em;
   background-color: #000;
-  opacity: .7;
+  opacity: .8;
   transition: .5s ease-in-out;
-  transform: translateY(-150px);
+  transform: translateY(-280px);
   display: flex;
   align-items: center;
 }
@@ -60,6 +59,27 @@ section:hover figcaption {
 }
 
 p {
-  margin: 0 0 .6em;
+  margin: 0;
   font-size: 1.3em;
+  text-align: center;
+}
+
+.tags { 
+  min-height: 60px; 
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 1em;
+}
+
+.tag {
+  background-color: deeppink;
+  color: #fff;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 0.35em .75em 0.5em;
+  margin: .5em;
 }
