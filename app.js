@@ -40,28 +40,18 @@ function makeCard(repo) {
 
 function makeTags(description) {
   const tags = document.createElement('div');
-
+  const technologies = ['react', 'react-router', 'redux', 'node', 'jquery', 'chart.js', 'mongo', 'mongoose', 
+    'postgres', 'mocha', 'chai', 'jest', 'express','bulma', 'sass', 'handlebars', 'heroku'];
+  
   tags.classList.add('tags');
   
-  description = description ? description.toLowerCase() : '';
+  if (description) {
+    description = description.toLowerCase();
 
-  // use HSL for color incrementing? 
-
-  if (description.includes('react')) tags.appendChild(makeTag('react'));
-  if (description.includes('redux')) tags.appendChild(makeTag('redux'));
-  if (description.includes('node')) tags.appendChild(makeTag('node'));
-  if (description.includes('jQuery')) tags.appendChild(makeTag('jQuery'));
-  if (description.includes('chart.js')) tags.appendChild(makeTag('chart.js'));
-  if (description.includes('mongo')) tags.appendChild(makeTag('mongo'));
-  if (description.includes('postgres')) tags.appendChild(makeTag('postgres'));
-  if (description.includes('mongoose')) tags.appendChild(makeTag('mongoose'));
-  if (description.includes('mocha')) tags.appendChild(makeTag('mocha'));
-  if (description.includes('jest')) tags.appendChild(makeTag('jest'));
-  if (description.includes('chai')) tags.appendChild(makeTag('chai'));
-  if (description.includes('express')) tags.appendChild(makeTag('express'));
-  if (description.includes('sass')) tags.appendChild(makeTag('sass'));
-  if (description.includes('react-router')) tags.appendChild(makeTag('react-router'));
-  if (description.includes('handlebars')) tags.appendChild(makeTag('handlebars'));
+    technologies.forEach(tech => {
+      if (description.includes(tech)) tags.appendChild(makeTag(tech));
+    });  
+  }
 
   return tags;
 }

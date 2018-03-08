@@ -17,7 +17,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding-top: var(--gutter);
+  padding: var(--gutter) 0;
 }
 
 section {
