@@ -49,7 +49,13 @@ function makeTags(description) {
     description = description.toLowerCase();
 
     technologies.forEach(tech => {
-      if (description.includes(tech)) tags.appendChild(makeTag(tech));
+      if (description.includes(tech)) {
+        const tag = makeTag(tech);
+
+        tag.classList.add(tech);
+
+        tags.appendChild(tag);
+      }
     });  
   }
 
