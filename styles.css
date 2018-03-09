@@ -17,11 +17,36 @@ header {
   padding: 3em 0; 
   text-align: center;
   margin: 0 auto;
+  perspective: 500px;
 }
 
 .header-text {
   font-size: 6em;
   font-weight: bold;
+}
+
+.header-text:nth-child(1) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) .1s backwards; }
+.header-text:nth-child(2) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) .2s backwards; }
+.header-text:nth-child(3) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) .3s backwards; }
+.header-text:nth-child(4) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) .4s backwards; }
+.header-text:nth-child(5) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) .5s backwards; }
+.header-text:nth-child(6) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) .6s backwards; }
+.header-text:nth-child(7) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) .7s backwards; }
+.header-text:nth-child(8) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) .8s backwards; }
+.header-text:nth-child(9) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) .9s backwards; }
+.header-text:nth-child(10) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) 1s backwards; }
+.header-text:nth-child(11) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) 1.1s backwards; }
+.header-text:nth-child(12) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) 1.2s backwards; }
+.header-text:nth-child(13) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) 1.3s backwards; }
+.header-text:nth-child(14) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) 1.4s backwards; }
+.header-text:nth-child(15) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) 1.5s backwards; }
+.header-text:nth-child(16) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) 1.6s backwards; }
+.header-text:nth-child(17) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) 1.7s backwards; }
+.header-text:nth-child(18) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) 1.8s backwards; }
+
+@keyframes flipUp {
+  0% { transform: rotateX(90deg); }
+  100% { transform: rotateX(0deg); }
 }
 
 main {
@@ -84,7 +109,6 @@ p {
 }
 
 .tag {
-  background-color: deeppink;
   color: #fff;
   border-radius: 3px;
   display: inline-block;
