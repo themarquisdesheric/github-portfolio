@@ -17,12 +17,16 @@ header {
   padding: 3em 0; 
   text-align: center;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
   perspective: 500px;
 }
 
 .header-text {
   font-size: 6em;
-  font-weight: bold;
+  font-family: 'Francois One', sans-serif;
+  transform-origin: 50% 75%;
+  
 }
 
 .header-text:nth-child(1) { animation: flipUp 1s cubic-bezier(0.14, -0.4, 0.26, 1.55) .1s backwards; }
