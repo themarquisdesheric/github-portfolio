@@ -9,10 +9,10 @@ if (store) {
 } else {
   fetch('https://api.github.com/users/themarquisdesheric/repos')
     .then(res => res.json())
-    .then(githubRepos => repos.push(...githubRepos))
-    .then( () => 
-      localStorage.setItem('repos', JSON.stringify(repos))
-    );
+    .then(githubRepos => {
+      repos.push(...githubRepos)
+      repos.forEach(makeCard);
+    });
 }
 
 function getPercentages(obj) {
@@ -85,4 +85,13 @@ function makeTag(text) {
   return tag;
 }
 
-repos.forEach(makeCard);
+repos.forEach(repo => {
+  fetch(repo.languages_url)
+    .then(res => res.json())
+    .then(languages => 
+      repo.percentages = getPercentages(languages)
+    )
+    .catch(console.log);  
+  });
+  
+localStorage.setItem('repos', JSON.stringify(repos));
