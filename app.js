@@ -15,6 +15,20 @@ if (store) {
     );
 }
 
+function getPercentages(obj) {
+  const total = Object.keys(obj)
+                  .reduce( (total, lang) => 
+                    total + obj[lang], 
+                  0);
+  
+  return Object.keys(obj)
+          .reduce( (percentages, lang) => {
+            percentages[lang] = Math.round(obj[lang] / total * 100);
+            
+            return percentages;
+          }, {});
+}
+
 function makeCard(repo) {
   const card = document.createElement('section');
   const figure = document.createElement('figure');
