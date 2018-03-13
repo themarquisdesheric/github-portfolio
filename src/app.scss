@@ -154,3 +154,21 @@ p {
   background-color: #64FFDA;
   color: #222; 
 }
+
+@media (max-width: 1215px) {
+  header span {
+    font-size: 4.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  header span {
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 450px) {
+  header span {
+    font-size: 2.5em;
+  }
+}
