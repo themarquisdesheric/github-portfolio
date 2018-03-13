@@ -1,8 +1,6 @@
-:root {
-  --gutter: 3em;
-}
+@import 'https://fonts.googleapis.com/css?family=Francois+One|Oswald';
 
-body { 
+body {
   margin: 0;
   font-family: Oswald, sans-serif;
 }
@@ -11,6 +9,10 @@ body {
   background-color: #edebfb;
   max-width: 100vw;
   min-height: 100vh;
+}
+
+:root {
+  --gutter: 3em;
 }
 
 header { 
@@ -70,7 +72,7 @@ section {
 }
 
 figure {
-  background: url(github.png) no-repeat center center;
+  background: url('%PUBLIC_URL%/github.png') no-repeat center center;
   height: 150px;
   width: 100%;
   margin: 0;
