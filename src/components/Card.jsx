@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tags from './Tags';
 
 const Card = ({ name, description }) => (
   <section>
@@ -7,8 +8,8 @@ const Card = ({ name, description }) => (
       {description && <figcaption>{description}</figcaption>}
     </figure>
     <footer>
-      <p>{name}</p>
-      {/* tags go here */}
+      <p className={description ? null : 'no-tags'}>{name}</p>
+      {description && <Tags description={description.toLowerCase()} />}
     </footer>
   </section>
 );
