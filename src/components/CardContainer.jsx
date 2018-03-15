@@ -1,4 +1,5 @@
 import React from 'react';
+import GitHub from 'github-api';
 import Card from './Card';
 
 class CardContainer extends React.Component {
@@ -12,8 +13,13 @@ class CardContainer extends React.Component {
     if (store) {
       this.setState({ repos: store });
     } else {
-      fetch('https://api.github.com/users/themarquisdesheric/repos?per_page=100')
-        .then(res => res.json())
+      const gh = new GitHub({
+        token: process.env.REACT_APP_GITHUB_KEY
+      });
+      
+      gh.getUser()
+        .listRepos()
+        .then(repos => repos.data.filter(repo => repo.owner.login === 'themarquisdesheric'))
         .then(repos => {
           localStorage.setItem('repos', JSON.stringify(repos));
 
