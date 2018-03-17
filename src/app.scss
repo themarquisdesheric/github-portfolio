@@ -54,7 +54,11 @@ header {
   100% { transform: rotateX(0deg); }
 }
 
-#chart { height: 475px }
+#chart { 
+  width: 475px;
+  margin: 2em 0;
+}
+
 
 main {
   display: flex;

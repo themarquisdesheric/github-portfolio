@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Chart from 'chart.js';
 
+Chart.defaults.global.defaultFontFamily = 'Oswald';
+Chart.defaults.global.defaultFontColor = '#000';
+Chart.defaults.global.defaultFontSize = 14;
+
+console.log(Chart.defaults.global); 
+
 class PieChart extends Component {
   componentDidMount() {
     const labels = [];
@@ -14,18 +20,14 @@ class PieChart extends Component {
       });
 
     const options = {
+      animation: {
+        animateRotate: true,
+        animateScale: true
+      },
       title: {
         display: true,
-        fontFamily: 'Oswald',
-        fontSize: 14,
-        fontColor: '#000'
-      },
-      legend: {
-        labels: {
-          fontFamily: 'Oswald',
-          fontSize: 14,
-          fontColor: '#000'
-        }
+        position: 'bottom',
+        text: 'Information obtained via the GitHub API',
       }
     };
 
@@ -51,7 +53,7 @@ class PieChart extends Component {
   render () {
     return (
       <div id="chart">
-        <canvas ref={canvas => this.canvas = canvas} height="100%" />
+        <canvas ref={canvas => this.canvas = canvas} height="400px" width="400px" />
       </div>
     );
   }
