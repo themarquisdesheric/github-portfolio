@@ -1,4 +1,4 @@
-import calcLanguageTotals from './utilities';
+import { calcLanguageTotals, calcRepoTotal } from './utilities';
 
 describe('github statistics', () => {
   

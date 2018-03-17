@@ -1,4 +1,4 @@
-const calcLanguageTotals = (repoStats, totals) => {
+export const calcLanguageTotals = (repoStats, totals) => {
   Object.keys(repoStats)
     .forEach(lang => {
       if (!totals[lang]) totals[lang] = 0;
@@ -7,4 +7,7 @@ const calcLanguageTotals = (repoStats, totals) => {
     });
 };
 
-export default calcLanguageTotals;
+export const calcRepoTotal = repoStats => 
+  Object.keys(repoStats).reduce( (sum, lang) => 
+    sum + repoStats[lang]   
+    , 0);
