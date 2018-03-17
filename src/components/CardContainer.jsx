@@ -2,7 +2,7 @@ import React from 'react';
 import GitHub from 'github-api';
 import fetch from 'isomorphic-fetch';
 import Card from './Card';
-import { calcLangTotals, calcRepoTotal } from '../utilities';
+import { calcLangTotals, calcRepoTotal, calcLangPercentages } from '../utilities';
 
 class CardContainer extends React.Component {
   state = {
@@ -25,7 +25,6 @@ class CardContainer extends React.Component {
           repo.owner.login === 'themarquisdesheric' && 
           repo.name !== 'incubator-datafu'))
         .then(repos => {
-
           // display repos, then calculate language totals
           this.setState({ repos }, () => {
             const headers = new Headers({
@@ -56,10 +55,16 @@ class CardContainer extends React.Component {
             
             Promise.all(promises)
               .then(repos => {
+                // break language totals into percentages for pie chart
+                const percentages = calcLangPercentages(totals);
+
                 // save to session storage so page reloads don't affect rate limit
                 sessionStorage.setItem('repos', JSON.stringify(repos));
       
-                this.setState({ repos, totals });
+                this.setState({ 
+                  repos,
+                  percentages 
+                });
               });
           });
         });
