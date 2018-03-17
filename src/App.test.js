@@ -1,6 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import calcLanguageTotals from './utilities';
 
 it('should calculate the totals for each language', () => {
   const repo = {
