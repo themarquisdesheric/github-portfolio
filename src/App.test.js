@@ -1,4 +1,4 @@
-import { calcLanguageTotals, calcRepoTotal } from './utilities';
+import { calcRepoTotal, calcLangPercentages, calcLangTotals } from './utilities';
 
 describe('github statistics', () => {
   const repo = {
@@ -63,7 +63,7 @@ describe('github statistics', () => {
       JavaScript: 1000
     };
   
-    calcLanguageTotals(prevRepo, repo);
+    calcLangTotals(prevRepo, repo);
   
     expect(repo).toEqual(expectedResult);
   });

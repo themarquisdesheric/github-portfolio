@@ -2,7 +2,7 @@ import React from 'react';
 import GitHub from 'github-api';
 import fetch from 'isomorphic-fetch';
 import Card from './Card';
-import { calcLanguageTotals, calcRepoTotal } from '../utilities';
+import { calcLangTotals, calcRepoTotal } from '../utilities';
 
 class CardContainer extends React.Component {
   state = {
@@ -40,7 +40,7 @@ class CardContainer extends React.Component {
               fetch(repo.languages_url, { headers })
                 .then(res => res.json())
                 .then(repoStats => {
-                  calcLanguageTotals(repoStats, totals);
+                  calcLangTotals(repoStats, totals);
                   
                   const repoTotal = calcRepoTotal(repoStats);
   
