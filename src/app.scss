@@ -16,7 +16,7 @@ body {
 }
 
 header { 
-  padding: 3em 0; 
+  padding: 3em 0 0; 
   text-align: center;
   margin: 0 auto;
   display: flex;
@@ -53,6 +53,8 @@ header {
   0% { transform: rotateX(90deg); }
   100% { transform: rotateX(0deg); }
 }
+
+#chart { height: 475px }
 
 main {
   display: flex;

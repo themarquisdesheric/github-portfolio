@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chart.js": "^2.7.2",
     "dotenv": "^5.0.1",
     "github-api": "^3.0.0",
     "isomorphic-fetch": "^2.2.1",
