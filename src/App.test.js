@@ -1,24 +1,42 @@
 import calcLanguageTotals from './utilities';
 
-it('should calculate the totals for each language', () => {
-  const repo = {
-    HTML: 700, 
-    JavaScript: 500
-  };
+describe('github statistics', () => {
+  
+  it('should calculate the totals for each language', () => {
+    const repo = {
+      HTML: 700, 
+      JavaScript: 500
+    };
+  
+    const totals = {
+      HTML: 300, 
+      CSS: 200, 
+      JavaScript: 500
+    };
+  
+    const expectedResult = {
+      HTML: 1000,
+      CSS: 200,
+      JavaScript: 1000
+    };
+  
+    calcLanguageTotals(repo, totals);
+  
+    expect(totals).toEqual(expectedResult);
+  });
 
-  const totals = {
-    HTML: 300, 
-    CSS: 200, 
-    JavaScript: 500
-  };
+  it('should calculate the sum of all languages for each repo', () => {
+    const repo = {
+      HTML: 300, 
+      CSS: 200, 
+      JavaScript: 500
+    };
 
-  const expectedResult = {
-    HTML: 1000,
-    CSS: 200,
-    JavaScript: 1000
-  };
+    const expectedResult = 1000;
 
-  calcLanguageTotals(repo, totals);
+    const result = calcRepoTotal(repo);
 
-  expect(totals).toEqual(expectedResult);
+    expect(result).toEqual(expectedResult);
+  });
 });
+
