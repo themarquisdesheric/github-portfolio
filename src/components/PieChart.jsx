@@ -63,7 +63,7 @@ class PieChart extends Component {
   render () {
     return (
       <div id="chart">
-        <canvas ref={canvas => this.canvas = canvas} height="400px" width="400px" />
+        <canvas ref={canvas => this.canvas = canvas} height="400px" width="400px" />        
       </div>
     );
   }

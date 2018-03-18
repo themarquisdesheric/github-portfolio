@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import GitHub from 'github-api';
 import fetch from 'isomorphic-fetch';
 import Header from './components/Header';
-import PieChart from './components/PieChart';
+import Dashboard from './components/Dashboard';
 import CardContainer from './components/CardContainer';
 import { calcLangTotals, calcRepoTotal, calcLangPercentages } from './utilities';
 import './App.css';
@@ -82,7 +82,7 @@ class App extends Component {
     return (
       <div id="wrapper">
         <Header />
-        {percentages && <PieChart percentages={percentages} />}
+        <Dashboard percentages={percentages} />
         <CardContainer repos={repos} />
       </div>
     );
