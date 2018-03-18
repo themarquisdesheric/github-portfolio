@@ -37,7 +37,8 @@ class PieChart extends Component {
         text: 'Information obtained via the GitHub API',
       },
       tooltips: false,
-      rotation: Math.PI * 2.41
+      rotation: Math.PI * 2.41,
+      cutoutPercentage: 50
     };
 
     const chart = new Chart(this.canvas, {
