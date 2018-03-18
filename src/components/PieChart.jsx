@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Chart from 'chart.js';
-
-Chart.defaults.global.defaultFontFamily = 'Oswald';
-Chart.defaults.global.defaultFontColor = '#000';
-Chart.defaults.global.defaultFontSize = 14;
-
-console.log(Chart.defaults.global); 
+import pieceLabel from 'chart.piecelabel.js';
 
 class PieChart extends Component {
   componentDidMount() {
@@ -19,7 +14,19 @@ class PieChart extends Component {
         data.push(val);
       });
 
+    Chart.defaults.global.defaultFontFamily = 'Oswald';
+    Chart.defaults.global.defaultFontColor = '#000';
+    Chart.defaults.global.defaultFontSize = 14;
+
     const options = {
+      plugins: [
+        pieceLabel
+      ],
+      pieceLabel: {
+        render: ({ label, value }) => 
+          `${value}% ${label}`,
+        fontStyle: 'bold'
+      },
       animation: {
         animateRotate: true,
         animateScale: true
@@ -28,7 +35,9 @@ class PieChart extends Component {
         display: true,
         position: 'bottom',
         text: 'Information obtained via the GitHub API',
-      }
+      },
+      tooltips: false,
+      rotation: Math.PI * 2.41
     };
 
     const chart = new Chart(this.canvas, {
@@ -37,12 +46,12 @@ class PieChart extends Component {
       data: {
         labels,
         datasets: [{
-          backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 205, 86, 0.2)'],
+          backgroundColor: ['rgba(156, 39, 176, 0.6)', 'rgba(233, 30, 99, 0.6)', 'rgba(33, 150, 243, 0.6)'],
           data
         }]
       }
     });
-  
+
     this.chart = chart;
   }
 
