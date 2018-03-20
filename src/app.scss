@@ -54,11 +54,14 @@ header {
   100% { transform: rotateX(0deg); }
 }
 
-#chart { 
-  max-width: 475px;
-  margin: 2em 0;
-}
+#dashboard { margin: 2em 0; }
 
+#chart, 
+#stats-panel { display: inline-block; }
+
+#chart { max-width: 475px; }
+
+#stats-panel { width: 50%; }
 
 main {
   display: flex;

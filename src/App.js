@@ -82,7 +82,7 @@ class App extends Component {
     return (
       <div id="wrapper">
         <Header />
-        <Dashboard percentages={percentages} />
+        {percentages && <Dashboard percentages={percentages} />}
         <CardContainer repos={repos} />
       </div>
     );

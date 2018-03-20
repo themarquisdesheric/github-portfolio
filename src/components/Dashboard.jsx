@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import GitHub from 'github-api';
 import fetch from 'isomorphic-fetch';
 import PieChart from './PieChart';
+import StatsPanel from './StatsPanel';
 
 class Dashboard extends Component {
   state = {
@@ -48,9 +49,12 @@ class Dashboard extends Component {
   }
 
   render() {
+    const { nodeApps } = this.state;
+
     return (
-      <article>
+      <article id="dashboard">
         <PieChart percentages={this.props.percentages} />
+        {nodeApps && <StatsPanel nodeApps={nodeApps} />}
       </article>
     );
   }
