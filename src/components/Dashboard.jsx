@@ -25,16 +25,32 @@ class Dashboard extends Component {
         
         
         const promises = repos.map(repo =>
+          // fetch content tree for each repo
           fetch(`https://api.github.com/repos/themarquisdesheric/${repo.name}/git/trees/master?recursive=1`
             , { headers }
           )
             .then(res => res.json())
             .then(res => {
-              const isNodeApp = res.tree.find(item => item.path.includes('package.json'));
+              const packageJSONIndex = res.tree.findIndex(item => item.path.includes('package.json'));
 
-              if (isNodeApp) repo.node = true;
+              if (packageJSONIndex > -1) {
+                repo.node = true;
+                // fetch package.json
+                return fetch(res.tree[packageJSONIndex].url, { headers })
+                  .then(res => res.json())
+                  .then(data => {
+                    // convert from base64 encoding
+                    const packageJSON = window.atob(data.content);
+                    const packageStringified = JSON.stringify(packageJSON);
 
-              return repo;
+                    if (packageStringified.includes('mongo')) repo.mongo = true;
+                    if (packageStringified.includes('express')) repo.express = true;
+                    if (packageStringified.includes('react')) repo.react = true;
+
+                    return repo;
+                  });
+              } 
+              else return repo;
             }));
         
         Promise.all(promises)
@@ -42,19 +58,34 @@ class Dashboard extends Component {
             const nodeApps = projects.reduce( (count, project) => 
               project.node ? count + 1 : count
               , 0);
+            const mongoApps = projects.reduce( (count, project) => 
+              project.mongo ? count + 1 : count
+              , 0);
+            const expressApps = projects.reduce( (count, project) => 
+              project.express ? count + 1 : count
+              , 0);
+            const reactApps = projects.reduce( (count, project) => 
+              project.react ? count + 1 : count
+              , 0);
 
-            this.setState({ nodeApps });
+            this.setState({ nodeApps, mongoApps, expressApps, reactApps });
           });
       });
   }
 
   render() {
-    const { nodeApps } = this.state;
+    const { nodeApps, mongoApps, expressApps, reactApps } = this.state;
 
     return (
       <article id="dashboard">
         <PieChart percentages={this.props.percentages} />
-        {nodeApps && <StatsPanel nodeApps={nodeApps} />}
+        {nodeApps && 
+          <StatsPanel 
+            nodeApps={nodeApps} 
+            mongoApps={mongoApps}
+            expressApps={expressApps}
+            reactApps={reactApps}
+          />}
       </article>
     );
   }

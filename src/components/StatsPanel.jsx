@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const StatsPanel = ({ nodeApps }) => (
+const StatsPanel = ({ mongoApps, nodeApps, expressApps, reactApps }) => (
   <div id="stats-panel">
-    {nodeApps} Node apps
+    {mongoApps} MongoDB apps {nodeApps} Node apps {expressApps} Express apps {reactApps} React apps
   </div>
 );
 
 StatsPanel.propTypes = {
-  nodeApps: PropTypes.number.isRequired
+  mongoApps: PropTypes.number.isRequired,
+  nodeApps: PropTypes.number.isRequired,
+  expressApps: PropTypes.number.isRequired,
+  reactApps: PropTypes.number.isRequired
 };
 
 export default StatsPanel;
