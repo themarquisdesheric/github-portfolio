@@ -28,8 +28,7 @@ class PieChart extends Component {
         fontStyle: 'bold'
       },
       animation: {
-        animateRotate: true,
-        animateScale: true
+        animateRotate: true
       },
       title: {
         display: true,
@@ -38,7 +37,7 @@ class PieChart extends Component {
       },
       tooltips: false,
       rotation: Math.PI * 2.41,
-      cutoutPercentage: 50
+      cutoutPercentage: 37
     };
 
     const chart = new Chart(this.canvas, {

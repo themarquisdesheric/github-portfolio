@@ -59,7 +59,10 @@ header {
 #chart, 
 #stats-panel { display: inline-block; }
 
-#chart { max-width: 475px; }
+#chart { 
+  max-width: 475px;
+  background: url('assets/github.png') no-repeat 50% 49%;
+}
 
 #stats-panel { width: 50%; }
 
