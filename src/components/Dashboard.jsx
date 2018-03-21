@@ -7,14 +7,16 @@ import StatsPanel from './StatsPanel';
 
 class Dashboard extends Component {
   state = {
-    mongoApps: 0,
-    nodeApps: 0,
-    expressApps: 0,
-    reactApps: 0
+    mongo: 0,
+    node: 0,
+    express: 0,
+    react: 0
   }
 
   componentDidMount() {
-    const gh = new GitHub({ token: process.env.REACT_APP_GITHUB_KEY });
+    const gh = new GitHub({ 
+      token: process.env.REACT_APP_GITHUB_KEY 
+    });
     const headers = new Headers({
       Authorization: `token ${process.env.REACT_APP_GITHUB_KEY}`,
     });
@@ -25,13 +27,10 @@ class Dashboard extends Component {
         repo.owner.login === 'themarquisdesheric' && 
         repo.name !== 'incubator-datafu'))
       .then(repos => {
-        
-        
         const promises = repos.map(repo =>
           // fetch content tree for each repo
           fetch(`https://api.github.com/repos/themarquisdesheric/${repo.name}/git/trees/master?recursive=1`
-            , { headers }
-          )
+            , { headers })
             .then(res => res.json())
             .then(res => {
               const packageJSONIndex = res.tree.findIndex(item => item.path.includes('package.json'));
@@ -43,12 +42,11 @@ class Dashboard extends Component {
                   .then(res => res.json())
                   .then(data => {
                     // convert from base64 encoding
-                    const packageJSON = window.atob(data.content);
-                    const packageStringified = JSON.stringify(packageJSON);
+                    const packageJSON = JSON.stringify(window.atob(data.content));
 
-                    if (packageStringified.includes('mongo')) repo.mongo = true;
-                    if (packageStringified.includes('express')) repo.express = true;
-                    if (packageStringified.includes('react')) repo.react = true;
+                    if (packageJSON.includes('mongo')) repo.mongo = true;
+                    if (packageJSON.includes('express')) repo.express = true;
+                    if (packageJSON.includes('react')) repo.react = true;
 
                     return repo;
                   });
@@ -58,13 +56,13 @@ class Dashboard extends Component {
         
         Promise.all(promises)
           .then(projects => {
-            const stats = projects.reduce( (count, project) => {
-              if (project.mongo) count.mongoApps++;
-              if (project.node) count.nodeApps++;
-              if (project.express) count.expressApps++;
-              if (project.react) count.reactApps++;
+            const stats = projects.reduce( (totals, project) => {
+              if (project.mongo) totals.mongo++;
+              if (project.node) totals.node++;
+              if (project.express) totals.express++;
+              if (project.react) totals.react++;
               
-              return count;
+              return totals;
             }, { ...this.state });
 
             this.setState({ ...stats });
@@ -73,18 +71,17 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { nodeApps, mongoApps, expressApps, reactApps } = this.state;
+    const { mongo, node, express, react } = this.state;
 
     return (
       <article id="dashboard">
         <PieChart percentages={this.props.percentages} />
-        {nodeApps && 
-          <StatsPanel 
-            nodeApps={nodeApps} 
-            mongoApps={mongoApps}
-            expressApps={expressApps}
-            reactApps={reactApps}
-          />}
+        <StatsPanel 
+          mongo={mongo}
+          node={node} 
+          express={express}
+          react={react}
+        />
       </article>
     );
   }
