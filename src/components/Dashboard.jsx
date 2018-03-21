@@ -7,7 +7,10 @@ import StatsPanel from './StatsPanel';
 
 class Dashboard extends Component {
   state = {
-    nodeApps: 0
+    mongoApps: 0,
+    nodeApps: 0,
+    expressApps: 0,
+    reactApps: 0
   }
 
   componentDidMount() {
@@ -55,20 +58,16 @@ class Dashboard extends Component {
         
         Promise.all(promises)
           .then(projects => {
-            const nodeApps = projects.reduce( (count, project) => 
-              project.node ? count + 1 : count
-              , 0);
-            const mongoApps = projects.reduce( (count, project) => 
-              project.mongo ? count + 1 : count
-              , 0);
-            const expressApps = projects.reduce( (count, project) => 
-              project.express ? count + 1 : count
-              , 0);
-            const reactApps = projects.reduce( (count, project) => 
-              project.react ? count + 1 : count
-              , 0);
+            const stats = projects.reduce( (count, project) => {
+              if (project.mongo) count.mongoApps++;
+              if (project.node) count.nodeApps++;
+              if (project.express) count.expressApps++;
+              if (project.react) count.reactApps++;
+              
+              return count;
+            }, { ...this.state });
 
-            this.setState({ nodeApps, mongoApps, expressApps, reactApps });
+            this.setState({ ...stats });
           });
       });
   }
