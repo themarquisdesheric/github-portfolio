@@ -1,6 +1,6 @@
 import { calcRepoTotal, calcLangPercentages, calcLangTotals } from './utilities';
 
-describe('github statistics', () => {
+describe('github dashboard', () => {
   const repo = {
     HTML: 300, 
     CSS: 200, 

@@ -54,11 +54,17 @@ header {
   100% { transform: rotateX(0deg); }
 }
 
+#dashboard { margin: 2em 0; }
+
+#chart, 
+#stats-panel { display: inline-block; }
+
 #chart { 
-  width: 475px;
-  margin: 2em 0;
+  max-width: 475px;
+  background: url('assets/github.png') no-repeat 50% 49%;
 }
 
+#stats-panel { width: 50%; }
 
 main {
   display: flex;

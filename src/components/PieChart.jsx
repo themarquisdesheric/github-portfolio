@@ -24,11 +24,11 @@ class PieChart extends Component {
       ],
       pieceLabel: {
         render: ({ label, value }) => 
-          `${value}% ${label}`
+          `${value}% ${label}`,
+        fontStyle: 'bold'
       },
       animation: {
-        animateRotate: true,
-        animateScale: true
+        animateRotate: true
       },
       title: {
         display: true,
@@ -36,7 +36,8 @@ class PieChart extends Component {
         text: 'Information obtained via the GitHub API',
       },
       tooltips: false,
-      rotation: Math.PI * 2.41
+      rotation: Math.PI * 2.41,
+      cutoutPercentage: 37
     };
 
     const chart = new Chart(this.canvas, {
@@ -61,7 +62,7 @@ class PieChart extends Component {
   render () {
     return (
       <div id="chart">
-        <canvas ref={canvas => this.canvas = canvas} height="400px" width="400px" />
+        <canvas ref={canvas => this.canvas = canvas} height="400px" width="400px" />        
       </div>
     );
   }
